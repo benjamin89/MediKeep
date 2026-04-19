@@ -64,6 +64,7 @@
     {
       "test_name": "Basophils",
       "abbreviation": "BASO",
+      "test_code": "706-2",
       "default_unit": "%",
       "category": "hematology",
       "common_names": ["Basophils", "Basos"],
@@ -73,6 +74,7 @@
     {
       "test_name": "Basophils (Absolute)",
       "abbreviation": "BASO#",
+      "test_code": "704-7",
       "default_unit": "K/uL",
       "category": "hematology",
       "common_names": [
@@ -242,6 +244,7 @@
     {
       "test_name": "Eosinophils",
       "abbreviation": "EOS",
+      "test_code": "713-8",
       "default_unit": "%",
       "category": "hematology",
       "common_names": ["Eosinophils", "Eos"],
@@ -251,6 +254,7 @@
     {
       "test_name": "Eosinophils (Absolute)",
       "abbreviation": "EOS#",
+      "test_code": "711-2",
       "default_unit": "K/uL",
       "category": "hematology",
       "common_names": [
@@ -284,6 +288,7 @@
     {
       "test_name": "Estimated GFR",
       "abbreviation": "eGFR",
+      "test_code": "98979-8",
       "default_unit": "mL/min/1.73m2",
       "category": "chemistry",
       "common_names": ["eGFR", "GFR"],
@@ -598,6 +603,7 @@
     {
       "test_name": "Lymphocytes",
       "abbreviation": "LYMPH",
+      "test_code": "736-9",
       "default_unit": "%",
       "category": "hematology",
       "common_names": ["Lymphs", "Lymphocytes"],
@@ -607,6 +613,7 @@
     {
       "test_name": "Lymphocytes (Absolute)",
       "abbreviation": "LYMPH#",
+      "test_code": "731-0",
       "default_unit": "K/uL",
       "category": "hematology",
       "common_names": [
@@ -672,6 +679,7 @@
     {
       "test_name": "Monocytes",
       "abbreviation": "MONO",
+      "test_code": "5905-5",
       "default_unit": "%",
       "category": "hematology",
       "common_names": ["Monocytes", "Monos"],
@@ -681,6 +689,7 @@
     {
       "test_name": "Monocytes (Absolute)",
       "abbreviation": "MONO#",
+      "test_code": "742-7",
       "default_unit": "K/uL",
       "category": "hematology",
       "common_names": ["Absolute Monocytes", "AMC", "Monocytes(Absolute)"],
@@ -690,6 +699,7 @@
     {
       "test_name": "Neutrophils",
       "abbreviation": "NEUT",
+      "test_code": "770-8",
       "default_unit": "%",
       "category": "hematology",
       "common_names": ["Neutrophils", "Segs", "Polys"],
@@ -699,6 +709,7 @@
     {
       "test_name": "Neutrophils (Absolute)",
       "abbreviation": "NEUT#",
+      "test_code": "751-8",
       "default_unit": "K/uL",
       "category": "hematology",
       "common_names": ["Absolute Neutrophils", "ANC"],
