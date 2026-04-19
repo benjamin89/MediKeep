@@ -211,7 +211,7 @@
       "test_code": "2160-0",
       "default_unit": "mg/dL",
       "category": "chemistry",
-      "common_names": ["Creatinine", "Cr", "Crea"],
+      "common_names": ["Creatinine", "Cr", "Crea", "Creatinine (serum)"],
       "is_common": true,
       "display_order": 20
     },
@@ -291,7 +291,7 @@
       "test_code": "98979-8",
       "default_unit": "mL/min/1.73m2",
       "category": "chemistry",
-      "common_names": ["eGFR", "GFR"],
+      "common_names": ["eGFR", "GFR", "eGFRcreat (CKD-EPI)"],
       "is_common": true,
       "display_order": 27
     },
@@ -642,7 +642,7 @@
       "test_code": "785-6",
       "default_unit": "pg",
       "category": "hematology",
-      "common_names": ["MCH"],
+      "common_names": ["MCH", "Mean Cell Haemoglobin", "Mean Corpuscular Haemoglobin"],
       "is_common": true,
       "display_order": 54
     },
@@ -652,7 +652,7 @@
       "test_code": "786-4",
       "default_unit": "g/dL",
       "category": "hematology",
-      "common_names": ["MCHC"],
+      "common_names": ["MCHC", "Mean Cell Haemoglobin Concentration"],
       "is_common": true,
       "display_order": 55
     },
@@ -662,7 +662,7 @@
       "test_code": "787-2",
       "default_unit": "fL",
       "category": "hematology",
-      "common_names": ["MCV"],
+      "common_names": ["MCV", "Mean Cell Volume"],
       "is_common": true,
       "display_order": 56
     },
@@ -1151,7 +1151,7 @@
       "test_code": "3091-6",
       "default_unit": "mg/dL",
       "category": "chemistry",
-      "common_names": ["Urea", "Serum Urea", "Blood Urea"],
+      "common_names": ["Urea", "Serum Urea", "Blood Urea", "Urea (serum)"],
       "is_common": true,
       "display_order": 90
     },
@@ -1717,6 +1717,36 @@
       "is_common": false,
       "result_type": "qualitative",
       "display_order": 155
+    }
+    ,{
+      "test_name": "Anion Gap",
+      "abbreviation": "AG",
+      "test_code": "10466-1",
+      "default_unit": "mmol/L",
+      "category": "chemistry",
+      "common_names": ["Anion Gap"],
+      "is_common": true,
+      "display_order": 155
+    }
+    ,{
+      "test_name": "Nucleated Red Blood Cells",
+      "abbreviation": "NRBC",
+      "test_code": "58413-6",
+      "default_unit": "/100 WBC",
+      "category": "hematology",
+      "common_names": ["Nucleated Red Blood Cells", "NRBC", "nRBC"],
+      "is_common": false,
+      "display_order": 156
+    }
+    ,{
+      "test_name": "Nucleated Red Blood Cells (Absolute)",
+      "abbreviation": "NRBC#",
+      "test_code": "771-6",
+      "default_unit": "K/uL",
+      "category": "hematology",
+      "common_names": ["Absolute Nucleated Red Blood Cells", "NRBC#", "nRBC#"],
+      "is_common": false,
+      "display_order": 157
     }
   ]
 }
