@@ -67,7 +67,7 @@
       "test_code": "706-2",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["Basophils", "Basos"],
+      "common_names": ["Basophils", "Basos", "Basophil %"],
       "is_common": true,
       "display_order": 7
     },
@@ -81,7 +81,8 @@
         "Absolute Basophils",
         "ABC",
         "Baso (Absolute)",
-        "Baso(Absolute)"
+        "Baso(Absolute)",
+        "Basophil count"
       ],
       "is_common": true,
       "display_order": 8
@@ -182,7 +183,7 @@
       "test_code": "2075-0",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["Cl", "Chloride"],
+      "common_names": ["Cl", "Chloride", "Chloride serum"],
       "is_common": true,
       "display_order": 17
     },
@@ -237,7 +238,7 @@
       "test_code": "1968-7",
       "default_unit": "mg/dL",
       "category": "hepatology",
-      "common_names": ["Direct Bilirubin", "D Bili", "Conjugated Bilirubin"],
+      "common_names": ["Direct Bilirubin", "D Bili", "Conjugated Bilirubin", "Bilirubin direct"],
       "is_common": false,
       "display_order": 22
     },
@@ -247,7 +248,7 @@
       "test_code": "713-8",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["Eosinophils", "Eos"],
+      "common_names": ["Eosinophils", "Eos", "Eosinophil %"],
       "is_common": true,
       "display_order": 23
     },
@@ -261,7 +262,8 @@
         "Absolute Eosinophils",
         "AEC",
         "Eos (Absolute)",
-        "Eos(Absolute)"
+        "Eos(Absolute)",
+        "Eosinophil count"
       ],
       "is_common": true,
       "display_order": 24
@@ -291,7 +293,7 @@
       "test_code": "98979-8",
       "default_unit": "mL/min/1.73m2",
       "category": "chemistry",
-      "common_names": ["eGFR", "GFR", "eGFRcreat (CKD-EPI)"],
+      "common_names": ["eGFR", "GFR", "eGFRcreat (CKD-EPI)", "eGFR (CKD-EPI)", "eGFRcr"],
       "is_common": true,
       "display_order": 27
     },
@@ -315,7 +317,7 @@
       "test_code": "2276-4",
       "default_unit": "ng/mL",
       "category": "hematology",
-      "common_names": ["Ferritin"],
+      "common_names": ["Ferritin", "Ferritin serum"],
       "is_common": false,
       "display_order": 29
     },
@@ -344,7 +346,7 @@
         "Folate",
         "Folic Acid",
         "Folate (Folic Acid), Serum",
-        "Folate, Serum"
+        "Folate, Serum", "Folate serum"
       ],
       "is_common": false,
       "display_order": 31
@@ -428,7 +430,7 @@
       "test_code": "4544-3",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["HCT", "Hct", "Packed Cell Volume"],
+      "common_names": ["HCT", "Hct", "Packed Cell Volume", "Haematocrit"],
       "is_common": true,
       "display_order": 39
     },
@@ -438,7 +440,7 @@
       "test_code": "718-7",
       "default_unit": "g/dL",
       "category": "hematology",
-      "common_names": ["HGB", "Hb", "Hemoglobin"],
+      "common_names": ["HGB", "Hb", "Hemoglobin", "Haemoglobin"],
       "is_common": true,
       "display_order": 40
     },
@@ -448,7 +450,7 @@
       "test_code": "4548-4",
       "default_unit": "%",
       "category": "endocrinology",
-      "common_names": ["HbA1c", "A1c", "Glycated Hemoglobin"],
+      "common_names": ["HbA1c", "A1c", "Glycated Hemoglobin", "HbA1c (IFCC)", "HbA1c (NGSP)"],
       "is_common": true,
       "display_order": 41
     },
@@ -606,7 +608,7 @@
       "test_code": "736-9",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["Lymphs", "Lymphocytes"],
+      "common_names": ["Lymphs", "Lymphocytes", "Lymphocyte %"],
       "is_common": true,
       "display_order": 51
     },
@@ -621,7 +623,7 @@
         "ALC",
         "Lymphs (Absolute)",
         "Lymphs(Absolute)",
-        "Lymphs( Absolute)"
+        "Lymphs( Absolute)", "Lymphocyte count"
       ],
       "is_common": true,
       "display_order": 52
@@ -682,7 +684,7 @@
       "test_code": "5905-5",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["Monocytes", "Monos"],
+      "common_names": ["Monocytes", "Monos", "Monocyte %"],
       "is_common": true,
       "display_order": 57
     },
@@ -692,7 +694,7 @@
       "test_code": "742-7",
       "default_unit": "K/uL",
       "category": "hematology",
-      "common_names": ["Absolute Monocytes", "AMC", "Monocytes(Absolute)"],
+      "common_names": ["Absolute Monocytes", "AMC", "Monocytes(Absolute)", "Monocyte count"],
       "is_common": true,
       "display_order": 58
     },
@@ -702,7 +704,7 @@
       "test_code": "770-8",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["Neutrophils", "Segs", "Polys"],
+      "common_names": ["Neutrophils", "Segs", "Polys", "Neutrophil %"],
       "is_common": true,
       "display_order": 59
     },
@@ -712,7 +714,7 @@
       "test_code": "751-8",
       "default_unit": "K/uL",
       "category": "hematology",
-      "common_names": ["Absolute Neutrophils", "ANC"],
+      "common_names": ["Absolute Neutrophils", "ANC", "Neutrophil count"],
       "is_common": true,
       "display_order": 60
     },
@@ -844,7 +846,7 @@
       "test_code": "2823-3",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["K", "Potassium"],
+      "common_names": ["K", "Potassium", "Potassium serum"],
       "is_common": true,
       "display_order": 69
     },
@@ -879,7 +881,7 @@
       "test_code": "789-8",
       "default_unit": "M/uL",
       "category": "hematology",
-      "common_names": ["RBC", "Red Blood Cells", "Erythrocytes"],
+      "common_names": ["RBC", "Red Blood Cells", "Erythrocytes", "Red cell count"],
       "is_common": true,
       "display_order": 72
     },
@@ -899,7 +901,7 @@
       "test_code": "2951-2",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["Na", "Sodium"],
+      "common_names": ["Na", "Sodium", "Sodium serum"],
       "is_common": true,
       "display_order": 74
     },
@@ -1010,7 +1012,7 @@
       "test_code": "3016-3",
       "default_unit": "mIU/L",
       "category": "endocrinology",
-      "common_names": ["TSH", "Thyrotropin"],
+      "common_names": ["TSH", "Thyrotropin", "TSH 3rd generation"],
       "is_common": true,
       "display_order": 79
     },
@@ -1020,7 +1022,7 @@
       "test_code": "1975-2",
       "default_unit": "mg/dL",
       "category": "hepatology",
-      "common_names": ["Total Bilirubin", "T Bili", "Bilirubin, Total"],
+      "common_names": ["Total Bilirubin", "T Bili", "Bilirubin, Total", "Bilirubin total"],
       "is_common": true,
       "display_order": 80
     },
@@ -1191,7 +1193,7 @@
       "test_code": "2132-9",
       "default_unit": "pg/mL",
       "category": "hematology",
-      "common_names": ["Vitamin B12", "B12", "Cobalamin"],
+      "common_names": ["Vitamin B12", "B12", "Cobalamin", "Vitamin B12 serum"],
       "is_common": false,
       "display_order": 93
     },
@@ -1226,7 +1228,7 @@
       "test_code": "6690-2",
       "default_unit": "K/uL",
       "category": "hematology",
-      "common_names": ["WBC", "White Blood Cells", "Leukocytes"],
+      "common_names": ["WBC", "White Blood Cells", "Leukocytes", "White cell count"],
       "is_common": true,
       "display_order": 96
     },
