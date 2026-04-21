@@ -9,6 +9,7 @@ from fastapi import (
     Depends,
     File,
     Form,
+    HTTPException,
     Query,
     Request,
     UploadFile,
@@ -63,8 +64,10 @@ from app.schemas.lab_result import (
     PDFExtractionMetadata,
     PDFExtractionResponse,
 )
+from app.schemas.entity_file import EntityFileLinkPaperlessRequest, EntityFileResponse
 from app.schemas.lab_result_file import LabResultFileCreate, LabResultFileResponse
 from app.services.generic_entity_file_service import GenericEntityFileService
+from app.services.paperless_client import create_paperless_client
 
 router = APIRouter()
 logger = get_logger(__name__, "app")
@@ -510,6 +513,120 @@ def search_lab_results_by_code_pattern(
 
 
 # File Management Endpoints
+@router.post(
+    "/{lab_result_id}/link-paperless",
+    response_model=EntityFileResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+async def link_paperless_document_to_lab_result(
+    *,
+    request: Request,
+    lab_result_id: int,
+    link_request: EntityFileLinkPaperlessRequest,
+    db: Session = Depends(get_db),
+    current_user_id: int = Depends(deps.get_current_user_id),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """Link an existing Paperless-ngx document to a lab result via the lab results API."""
+    db_lab_result = lab_result.get_with_relations(
+        db=db, record_id=lab_result_id, relations=["patient"]
+    )
+    if not db_lab_result or not db_lab_result.patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Lab result not found"
+        )
+
+    from app.services.patient_access import PatientAccessService
+
+    access_service = PatientAccessService(db)
+    if not access_service.can_access_patient(current_user, db_lab_result.patient, "edit"):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Lab result not found"
+        )
+
+    user_prefs = current_user.preferences
+    if not user_prefs or not user_prefs.paperless_enabled:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Paperless integration is not enabled",
+        )
+
+    has_auth = user_prefs.paperless_api_token_encrypted or (
+        user_prefs.paperless_username_encrypted
+        and user_prefs.paperless_password_encrypted
+    )
+    if not user_prefs.paperless_url or not has_auth:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Paperless configuration is incomplete",
+        )
+
+    log_endpoint_access(
+        logger,
+        request,
+        current_user_id,
+        "lab_result_paperless_link_requested",
+        message=f"Paperless document link request for lab result {lab_result_id}",
+        lab_result_id=lab_result_id,
+        paperless_document_id=link_request.paperless_document_id,
+    )
+
+    paperless_client = create_paperless_client(
+        url=user_prefs.paperless_url,
+        encrypted_token=user_prefs.paperless_api_token_encrypted,
+        encrypted_username=user_prefs.paperless_username_encrypted,
+        encrypted_password=user_prefs.paperless_password_encrypted,
+        user_id=current_user_id,
+    )
+
+    async with paperless_client:
+        doc_info = await paperless_client.get_document_info(
+            link_request.paperless_document_id
+        )
+
+    if not doc_info:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Document {link_request.paperless_document_id} not found in Paperless",
+        )
+
+    mime_to_ext = {
+        "application/pdf": ".pdf",
+        "image/jpeg": ".jpg",
+        "image/png": ".png",
+        "image/tiff": ".tiff",
+        "text/plain": ".txt",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx",
+        "application/msword": ".doc",
+    }
+    file_type = doc_info.get("mime_type") or "application/pdf"
+    extension = mime_to_ext.get(file_type, "")
+    file_name = (
+        doc_info.get("original_file_name")
+        or doc_info.get("title")
+        or f"document_{link_request.paperless_document_id}{extension}"
+    )
+
+    entity_file_service = GenericEntityFileService()
+    entity_file = entity_file_service.create_entity_file_record(
+        db=db,
+        entity_type="lab-result",
+        entity_id=lab_result_id,
+        file_name=file_name,
+        file_path=f"paperless://document/{link_request.paperless_document_id}",
+        file_type=file_type,
+        file_size=doc_info.get("archive_size") or doc_info.get("size"),
+        description=link_request.description
+        or f"Linked from Paperless (ID: {link_request.paperless_document_id})",
+        category=link_request.category,
+        storage_backend="paperless",
+        paperless_document_id=link_request.paperless_document_id,
+        sync_status="synced",
+    )
+
+    return EntityFileResponse.model_validate(entity_file)
+
+
 @router.get("/{lab_result_id}/files", response_model=List[LabResultFileResponse])
 def get_lab_result_files(
     *,

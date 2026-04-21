@@ -7,6 +7,7 @@ from datetime import date
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 import io
+from unittest.mock import AsyncMock, patch
 
 from app.crud.patient import patient as patient_crud
 from app.schemas.patient import PatientCreate
@@ -249,6 +250,73 @@ class TestLabResultsAPI:
             f"/api/v1/lab-results/{lab_result_id}", headers=authenticated_headers
         )
         assert get_response.status_code == 404
+
+    @patch("app.api.v1.endpoints.lab_result.create_paperless_client")
+    def test_link_paperless_document_to_lab_result(
+        self,
+        mock_create_paperless_client,
+        client: TestClient,
+        user_with_patient,
+        authenticated_headers,
+        db_session: Session,
+    ):
+        """Test linking an existing Paperless document to a lab result."""
+        from app.models.models import UserPreferences
+
+        prefs = UserPreferences(
+            user_id=user_with_patient["user"].id,
+            paperless_enabled=True,
+            paperless_url="https://paperless.example.com",
+            paperless_api_token_encrypted="encrypted-token",
+        )
+        db_session.add(prefs)
+        db_session.commit()
+
+        mock_client = AsyncMock()
+        mock_client.__aenter__.return_value = mock_client
+        mock_client.__aexit__.return_value = False
+        mock_client.get_document_info.return_value = {
+            "title": "INOVIE Report",
+            "original_file_name": "inovie-report.pdf",
+            "mime_type": "application/pdf",
+            "archive_size": 12345,
+        }
+        mock_create_paperless_client.return_value = mock_client
+
+        lab_result_data = {
+            "patient_id": user_with_patient["patient"].id,
+            "test_name": "Creatinine",
+            "test_code": "CREA",
+            "labs_result": "abnormal",
+            "status": "completed",
+            "ordered_date": "2024-01-01",
+        }
+
+        create_response = client.post(
+            "/api/v1/lab-results/", json=lab_result_data, headers=authenticated_headers
+        )
+        assert create_response.status_code == 201
+        lab_result_id = create_response.json()["id"]
+
+        response = client.post(
+            f"/api/v1/lab-results/{lab_result_id}/link-paperless",
+            json={
+                "paperless_document_id": "1162",
+                "description": "Original PDF in Paperless",
+                "category": "lab-report",
+            },
+            headers=authenticated_headers,
+        )
+
+        assert response.status_code == 201
+        data = response.json()
+        assert data["entity_type"] == "lab-result"
+        assert data["entity_id"] == lab_result_id
+        assert data["storage_backend"] == "paperless"
+        assert data["paperless_document_id"] == "1162"
+        assert data["file_name"] == "inovie-report.pdf"
+        assert data["description"] == "Original PDF in Paperless"
+
 
     def test_lab_result_file_download(
         self, client: TestClient, user_with_patient, authenticated_headers
