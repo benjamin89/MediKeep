@@ -9,6 +9,7 @@ from typing import List, Optional
 
 from .base_parser import BaseLabParser, LabTestResult
 from .epic_mychart_parser import EpicMyChartParser
+from .inovie_genbio_parser import InovieGenBioParser
 from .labcorp_parser_v2 import LabCorpParserV2
 from .quest_parser import QuestParser
 
@@ -22,6 +23,7 @@ class LabParserRegistry:
             LabCorpParserV2(),  # Using improved V2 parser
             QuestParser(),
             EpicMyChartParser(),
+            InovieGenBioParser(),
         ]
 
     def get_parser(self, text: str) -> Optional[BaseLabParser]:
@@ -69,6 +71,7 @@ __all__ = [
     "LabCorpParserV2",
     "QuestParser",
     "EpicMyChartParser",
+    "InovieGenBioParser",
     "LabParserRegistry",
     "lab_parser_registry",
 ]
