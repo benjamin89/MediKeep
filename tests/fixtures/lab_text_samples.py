@@ -142,6 +142,33 @@ TRIGLYCERIDES 100 Reference Range: <150 mg/dL
 """
 
 # ============================================================
+# INOVIE GEN-BIO samples
+# ============================================================
+
+INOVIE_GENBIO_SAMPLE = """
+INOVIE LABORATOIRE DE BIOLOGIE MEDICALE
+INOVIE GEN-BIO St François - Montluçon
+Demande n° 13/04/26-F-0273
+Prélevé par LAFOC le 13/04/26 à 07H30
+www.INOVIE.fr
+
+HEMATOLOGIE
+Leucocytes ....................................... 13,14 Giga/L (4,10 à 11,00)
+Lymphocytes ........................37,3 % 4,90 Giga/L (1,20 à 3,90)
+Plaquettes ........................................ 335 Giga/L (161 à 400)
+
+BIOCHIMIE
+Glycémie ............................................. 5,79 mmol/L (4,11 à 5,89)
+Sodium ............................................... 138 mmol/L (136 à 145)
+Potassium ........................................... 4,56 mmol/L (3.50 à 5.10)
+
+Fonction rénale
+Créatinine ........................................... 83,2 µmol/L (59 à 104)
+Débit de Filtration Glomérulaire .............. 104 mL/min/1,73 m2 (Sup à 60)
+Microalbuminurie .................................. 19,7 mg/L (Inf. 20)
+"""
+
+# ============================================================
 # Epic MyChart samples
 # ============================================================
 
