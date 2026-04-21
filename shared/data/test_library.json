@@ -18,7 +18,7 @@
       "test_code": "1751-7",
       "default_unit": "g/dL",
       "category": "hepatology",
-      "common_names": ["Albumin", "Alb"],
+      "common_names": ["Albumin", "Alb", "Albumine sérique", "Albuminémie"],
       "is_common": true,
       "display_order": 2
     },
@@ -143,7 +143,7 @@
       "test_code": "17861-6",
       "default_unit": "mg/dL",
       "category": "chemistry",
-      "common_names": ["Ca", "Calcium"],
+      "common_names": ["Ca", "Calcium", "Calcémie", "Calcium corrigé"],
       "is_common": true,
       "display_order": 14
     },
@@ -153,7 +153,7 @@
       "test_code": "2028-9",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["CO2", "Bicarbonate", "HCO3", "Carbon Dioxide, Total"],
+      "common_names": ["CO2", "Bicarbonate", "HCO3", "Carbon Dioxide, Total", "Réserve alcaline"],
       "is_common": true,
       "display_order": 15
     },
@@ -180,7 +180,7 @@
       "test_code": "2075-0",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["Cl", "Chloride"],
+      "common_names": ["Cl", "Chloride", "Chlore", "Chlorémie"],
       "is_common": true,
       "display_order": 17
     },
@@ -209,7 +209,7 @@
       "test_code": "2160-0",
       "default_unit": "mg/dL",
       "category": "chemistry",
-      "common_names": ["Creatinine", "Cr", "Crea"],
+      "common_names": ["Creatinine", "Cr", "Crea", "Créatinine"],
       "is_common": true,
       "display_order": 20
     },
@@ -286,7 +286,7 @@
       "abbreviation": "eGFR",
       "default_unit": "mL/min/1.73m2",
       "category": "chemistry",
-      "common_names": ["eGFR", "GFR"],
+      "common_names": ["eGFR", "GFR", "Débit de Filtration Glomérulaire", "DFG"],
       "is_common": true,
       "display_order": 27
     },
@@ -403,7 +403,7 @@
       "test_code": "2345-7",
       "default_unit": "mg/dL",
       "category": "endocrinology",
-      "common_names": ["Blood Glucose", "Blood Sugar", "Glu"],
+      "common_names": ["Blood Glucose", "Blood Sugar", "Glu", "Glycémie"],
       "is_common": true,
       "display_order": 37
     },
@@ -423,7 +423,7 @@
       "test_code": "4544-3",
       "default_unit": "%",
       "category": "hematology",
-      "common_names": ["HCT", "Hct", "Packed Cell Volume"],
+      "common_names": ["HCT", "Hct", "Packed Cell Volume", "Hématocrite"],
       "is_common": true,
       "display_order": 39
     },
@@ -433,7 +433,7 @@
       "test_code": "718-7",
       "default_unit": "g/dL",
       "category": "hematology",
-      "common_names": ["HGB", "Hb", "Hemoglobin"],
+      "common_names": ["HGB", "Hb", "Hemoglobin", "Hémoglobine"],
       "is_common": true,
       "display_order": 40
     },
@@ -635,7 +635,7 @@
       "test_code": "785-6",
       "default_unit": "pg",
       "category": "hematology",
-      "common_names": ["MCH"],
+      "common_names": ["MCH", "TCMH"],
       "is_common": true,
       "display_order": 54
     },
@@ -645,7 +645,7 @@
       "test_code": "786-4",
       "default_unit": "g/dL",
       "category": "hematology",
-      "common_names": ["MCHC"],
+      "common_names": ["MCHC", "CCMH"],
       "is_common": true,
       "display_order": 55
     },
@@ -655,7 +655,7 @@
       "test_code": "787-2",
       "default_unit": "fL",
       "category": "hematology",
-      "common_names": ["MCV"],
+      "common_names": ["MCV", "VGM"],
       "is_common": true,
       "display_order": 56
     },
@@ -813,7 +813,7 @@
       "test_code": "2777-1",
       "default_unit": "mg/dL",
       "category": "chemistry",
-      "common_names": ["Phosphorus", "Phos", "Phosphate"],
+      "common_names": ["Phosphorus", "Phos", "Phosphate", "Phosphore", "Phosphatémie"],
       "is_common": false,
       "display_order": 67
     },
@@ -823,7 +823,7 @@
       "test_code": "777-3",
       "default_unit": "K/uL",
       "category": "hematology",
-      "common_names": ["PLT", "Platelets", "Thrombocytes"],
+      "common_names": ["PLT", "Platelets", "Thrombocytes", "Plaquettes"],
       "is_common": true,
       "display_order": 68
     },
@@ -833,7 +833,7 @@
       "test_code": "2823-3",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["K", "Potassium"],
+      "common_names": ["K", "Potassium", "Kaliémie"],
       "is_common": true,
       "display_order": 69
     },
@@ -868,7 +868,7 @@
       "test_code": "789-8",
       "default_unit": "M/uL",
       "category": "hematology",
-      "common_names": ["RBC", "Red Blood Cells", "Erythrocytes"],
+      "common_names": ["RBC", "Red Blood Cells", "Erythrocytes", "Hématies"],
       "is_common": true,
       "display_order": 72
     },
@@ -888,7 +888,7 @@
       "test_code": "2951-2",
       "default_unit": "mmol/L",
       "category": "chemistry",
-      "common_names": ["Na", "Sodium"],
+      "common_names": ["Na", "Sodium", "Natrémie"],
       "is_common": true,
       "display_order": 74
     },
@@ -1044,7 +1044,7 @@
       "test_code": "2885-2",
       "default_unit": "g/dL",
       "category": "hepatology",
-      "common_names": ["Total Protein", "TP", "Protein, Total"],
+      "common_names": ["Total Protein", "TP", "Protein, Total", "Protides totaux", "Protéines totales"],
       "is_common": true,
       "display_order": 83
     },
@@ -1215,7 +1215,7 @@
       "test_code": "6690-2",
       "default_unit": "K/uL",
       "category": "hematology",
-      "common_names": ["WBC", "White Blood Cells", "Leukocytes"],
+      "common_names": ["WBC", "White Blood Cells", "Leukocytes", "Leucocytes"],
       "is_common": true,
       "display_order": 96
     },
